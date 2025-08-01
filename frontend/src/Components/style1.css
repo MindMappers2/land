@@ -1076,11 +1076,13 @@ form button:disabled {
 }
 
 .btn-primary {
-  background: var(--white);
-  color: var(--primary-accent);
+  background: #1B4D3E;
+  color: var(--white);
 }
 
 .btn-primary:hover {
+  background: #0A4D2C;
+  color: var(--white);
   transform: translateY(-2px);
   box-shadow: var(--shadow-medium);
 }
