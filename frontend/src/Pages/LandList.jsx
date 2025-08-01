@@ -9,6 +9,20 @@ const LandList = () => {
         <p className="page-subtitle">Choose the type of land you're looking for</p>
       </div>
       
+      {/* Quick Navigation Links */}
+      <div className="quick-nav-section">
+        <div className="quick-nav-links">
+          <Link to="/agricultural-lands" className="quick-nav-link agricultural">
+            <span className="nav-icon">🌾</span>
+            <span>Agricultural Lands</span>
+          </Link>
+          <Link to="/development-lands" className="quick-nav-link development">
+            <span className="nav-icon">🏗️</span>
+            <span>Development Lands</span>
+          </Link>
+        </div>
+      </div>
+      
       <div className="land-categories-container">
         <div className="category-buttons">
           <Link to="/agricultural-lands" className="category-button agricultural">
