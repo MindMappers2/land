@@ -1619,63 +1619,7 @@ form button:disabled {
   text-decoration: underline;
 }
 
-/* Quick Navigation Section */
-.quick-nav-section {
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
-  padding: 1rem 0;
-}
 
-.quick-nav-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.quick-nav-link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--white);
-  color: var(--dark-contrast);
-  text-decoration: none;
-  border-radius: var(--border-radius-sm);
-  font-weight: 500;
-  transition: var(--transition);
-  box-shadow: var(--shadow-light);
-  border: 2px solid transparent;
-}
-
-.quick-nav-link:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-medium);
-}
-
-.quick-nav-link.agricultural {
-  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-  color: var(--white);
-  border-color: #27ae60;
-}
-
-.quick-nav-link.agricultural:hover {
-  background: linear-gradient(135deg, #229954 0%, #27ae60 100%);
-}
-
-.quick-nav-link.development {
-  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-  color: var(--white);
-  border-color: #3498db;
-}
-
-.quick-nav-link.development:hover {
-  background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
-}
-
-.nav-icon {
-  font-size: 1.2rem;
-}
 
 /* Land Categories Container */
 .land-categories-container {
@@ -1826,10 +1770,11 @@ form button:disabled {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .price-input {
-  flex: 1;
+  width: 120px;
   padding: 0.75rem;
   border: 2px solid var(--neutral-gray);
   border-radius: var(--border-radius-sm);
@@ -1837,6 +1782,7 @@ form button:disabled {
   transition: var(--transition);
   background: var(--white);
   color: var(--dark-contrast);
+  text-align: center;
 }
 
 .price-input:focus {
@@ -2154,8 +2100,13 @@ form button:disabled {
   }
 
   .price-range {
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .price-input {
+    width: 100px;
   }
 
   .search-filter-section {

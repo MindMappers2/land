@@ -9,29 +9,15 @@ const LandList = () => {
         <p className="page-subtitle">Choose the type of land you're looking for</p>
       </div>
       
-      {/* Quick Navigation Links */}
-      <div className="quick-nav-section">
-        <div className="quick-nav-links">
-          <Link to="/agricultural-lands" className="quick-nav-link agricultural">
-            <span className="nav-icon">🌾</span>
-            <span>Agricultural Lands</span>
-          </Link>
-          <Link to="/development-lands" className="quick-nav-link development">
-            <span className="nav-icon">🏗️</span>
-            <span>Development Lands</span>
-          </Link>
-        </div>
-      </div>
-      
       <div className="land-categories-container">
         <div className="category-buttons">
-          <Link to="/agricultural-lands" className="category-button agricultural">
+          <Link to="/lands/agricultural" className="category-button agricultural">
             <div className="category-icon">🌾</div>
             <h2>Agricultural Lands</h2>
             <p>Find the best land for farming, crops, and livestock</p>
           </Link>
           
-          <Link to="/development-lands" className="category-button development">
+          <Link to="/lands/development" className="category-button development">
             <div className="category-icon">🏗️</div>
             <h2>Development Lands</h2>
             <p>Find the best land for construction and commercial use</p>
