@@ -1493,9 +1493,211 @@ form button:disabled {
     padding: 1.5rem;
   }
   
-  .step-number {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-  }
-}
+     .step-number {
+     width: 50px;
+     height: 50px;
+     font-size: 1.2rem;
+   }
+ }
+
+ /* Equipment Page Styles */
+ .equipment-page {
+   padding: 2rem 0;
+   background: var(--light-background);
+   min-height: 100vh;
+ }
+
+ .category-filter {
+   display: flex;
+   justify-content: center;
+   gap: 1rem;
+   margin-bottom: 3rem;
+   flex-wrap: wrap;
+ }
+
+ .filter-btn {
+   padding: 0.75rem 1.5rem;
+   border: 2px solid var(--primary-accent);
+   background: transparent;
+   color: var(--primary-accent);
+   border-radius: var(--border-radius-sm);
+   font-weight: 600;
+   cursor: pointer;
+   transition: var(--transition);
+   font-size: 0.95rem;
+ }
+
+ .filter-btn:hover,
+ .filter-btn.active {
+   background: var(--primary-accent);
+   color: var(--white);
+   transform: translateY(-2px);
+ }
+
+ .equipment-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+   gap: 2rem;
+   margin-bottom: 4rem;
+ }
+
+ .equipment-card {
+   background: var(--white);
+   border-radius: var(--border-radius);
+   box-shadow: var(--shadow-light);
+   overflow: hidden;
+   transition: var(--transition);
+   border: 1px solid var(--neutral-gray);
+   display: flex;
+   flex-direction: column;
+ }
+
+ .equipment-card:hover {
+   transform: translateY(-5px);
+   box-shadow: var(--shadow-medium);
+ }
+
+ .equipment-image {
+   position: relative;
+   height: 200px;
+   overflow: hidden;
+ }
+
+ .equipment-image img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   transition: var(--transition);
+ }
+
+ .equipment-card:hover .equipment-image img {
+   transform: scale(1.05);
+ }
+
+ .equipment-category {
+   position: absolute;
+   top: 1rem;
+   right: 1rem;
+   background: var(--primary-accent);
+   color: var(--white);
+   padding: 0.25rem 0.75rem;
+   border-radius: 20px;
+   font-size: 0.8rem;
+   font-weight: 600;
+   text-transform: capitalize;
+ }
+
+ .equipment-content {
+   padding: 1.5rem;
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+ }
+
+ .equipment-content h3 {
+   font-size: 1.3rem;
+   color: var(--dark-contrast);
+   margin-bottom: 0.75rem;
+   font-weight: 600;
+   line-height: 1.3;
+ }
+
+ .equipment-description {
+   color: var(--primary-accent);
+   margin-bottom: 1rem;
+   font-size: 0.95rem;
+   line-height: 1.5;
+   flex: 1;
+ }
+
+ .equipment-details {
+   margin-bottom: 1rem;
+ }
+
+ .detail-item {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 0.5rem;
+   font-size: 0.9rem;
+ }
+
+ .detail-label {
+   color: var(--dark-contrast);
+   font-weight: 600;
+ }
+
+ .detail-value {
+   color: var(--primary-accent);
+ }
+
+ .equipment-price {
+   font-size: 1.4rem;
+   font-weight: 700;
+   color: var(--secondary-accent);
+   margin-bottom: 1rem;
+   text-align: center;
+ }
+
+ .equipment-actions {
+   display: flex;
+   gap: 0.5rem;
+   flex-wrap: wrap;
+ }
+
+ .equipment-actions .btn {
+   flex: 1;
+   min-width: 120px;
+   padding: 0.75rem 1rem;
+   font-size: 0.9rem;
+ }
+
+ .equipment-categories-section {
+   padding: 4rem 0;
+   background: var(--white);
+   margin: 2rem -2rem;
+   padding: 4rem 2rem;
+ }
+
+ /* Responsive Design for Equipment Page */
+ @media (max-width: 768px) {
+   .category-filter {
+     gap: 0.5rem;
+   }
+   
+   .filter-btn {
+     padding: 0.5rem 1rem;
+     font-size: 0.9rem;
+   }
+   
+   .equipment-grid {
+     grid-template-columns: 1fr;
+     gap: 1.5rem;
+   }
+   
+   .equipment-actions {
+     flex-direction: column;
+   }
+   
+   .equipment-actions .btn {
+     width: 100%;
+   }
+   
+   .equipment-categories-section {
+     margin: 2rem -1rem;
+     padding: 3rem 1rem;
+   }
+ }
+
+ @media (max-width: 480px) {
+   .equipment-content {
+     padding: 1rem;
+   }
+   
+   .equipment-content h3 {
+     font-size: 1.2rem;
+   }
+   
+   .equipment-price {
+     font-size: 1.2rem;
+   }
+ }
