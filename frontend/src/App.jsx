@@ -15,6 +15,7 @@ import Favorites from "./Pages/Favorites";
 import AgriculturalLands from "./Pages/AgriculturalLands";
 import DevelopmentLands from "./Pages/DevelopmentLands";
 import Equipment from "./Pages/Equipment";
+import AddLand from "./Pages/AddLand";
 
 const App = () => (
   <div className="App">
@@ -33,6 +34,7 @@ const App = () => (
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/favorites" element={<Favorites />} />
               <Route path="/equipment" element={<Equipment />} />
+              <Route path="/add-land" element={<AddLand />} />
               <Route path="/lands/agricultural" element={<AgriculturalLands />} />
               <Route path="/lands/development" element={<DevelopmentLands />} />
             </Routes>

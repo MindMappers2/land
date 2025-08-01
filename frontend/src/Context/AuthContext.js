@@ -1,2 +1,2 @@
-import { createContext } from "react";
-export const AuthContext = createContext(); 
+// Export AuthContext from AuthProvider
+export { AuthContext } from './AuthProvider'; 

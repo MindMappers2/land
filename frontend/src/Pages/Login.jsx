@@ -4,21 +4,31 @@ import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ 
+    email: "", 
+    password: "", 
+    userType: "rental" // Default to rental login
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    setError(""); // Clear error when user types
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     setIsLoading(true);
     try {
-      await login(form);
+      // Pass user type to login function
+      await login({ ...form, userType: form.userType });
       navigate("/dashboard");
     } catch (error) {
-      console.error("Login failed:", error);
+      setError(error.message || "Login failed. Please check your credentials.");
     } finally {
       setIsLoading(false);
     }
@@ -79,7 +89,60 @@ const Login = () => {
             <p>Sign in to your account to continue</p>
           </div>
           
+          {error && (
+            <div className="error-message" style={{
+              background: "#fee2e2",
+              color: "#dc2626",
+              padding: "0.75rem",
+              borderRadius: "8px",
+              marginBottom: "1rem",
+              fontSize: "0.9rem"
+            }}>
+              {error}
+            </div>
+          )}
+          
           <form onSubmit={handleSubmit} className="login-form">
+            {/* User Type Selection */}
+            <div className="form-group">
+              <label>Login Type</label>
+              <div className="user-type-selection">
+                <label className={`user-type-option ${form.userType === 'rental' ? 'active' : ''}`}>
+                  <input 
+                    type="radio" 
+                    name="userType" 
+                    value="rental" 
+                    checked={form.userType === 'rental'}
+                    onChange={handleChange}
+                  />
+                  <div className="option-content">
+                    <div className="option-icon">🏠</div>
+                    <div className="option-text">
+                      <span className="option-title">Rental Login</span>
+                      <span className="option-description">Find and rent lands</span>
+                    </div>
+                  </div>
+                </label>
+                
+                <label className={`user-type-option ${form.userType === 'owner' ? 'active' : ''}`}>
+                  <input 
+                    type="radio" 
+                    name="userType" 
+                    value="owner" 
+                    checked={form.userType === 'owner'}
+                    onChange={handleChange}
+                  />
+                  <div className="option-content">
+                    <div className="option-icon">👨‍💼</div>
+                    <div className="option-text">
+                      <span className="option-title">Owner Login</span>
+                      <span className="option-description">Manage your properties</span>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            
             <div className="form-group">
               <label htmlFor="email">Email Address</label>
               <div className="input-container">
@@ -162,7 +225,7 @@ const Login = () => {
                   </svg>
                 </div>
               ) : (
-                "Sign In"
+                `Sign In as ${form.userType === 'owner' ? 'Owner' : 'Rental'}`
               )}
             </button>
             
