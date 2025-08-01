@@ -1,0 +1,484 @@
+/* App.css - Additional styling for better alignment and polish */
+
+/* Import Google Fonts for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables for consistent theming - Royal Green Theme */
+:root {
+  --primary-accent: #2E8B57; /* Sea Green - main royal green */
+  --secondary-accent: #228B22; /* Forest Green - darker royal green */
+  --accent-light: #90EE90; /* Light Green - lighter accent */
+  --neutral-gray: #D7D7D7;
+  --dark-contrast: #1B4D3E; /* Dark green for text */
+  --light-background: #F0F8F0; /* Very light green background */
+  --white: #ffffff;
+  --shadow-light: 0 2px 10px rgba(46, 139, 87, 0.1);
+  --shadow-medium: 0 4px 20px rgba(46, 139, 87, 0.15);
+  --shadow-heavy: 0 8px 30px rgba(46, 139, 87, 0.2);
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* Global App Styles */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--light-background);
+  color: var(--dark-contrast);
+  line-height: 1.6;
+}
+
+/* Ensure all text uses dark green theme */
+* {
+  color: var(--dark-contrast);
+}
+
+/* Override for white text on dark backgrounds */
+.navbar,
+.home-container,
+.hero-section,
+.login-header,
+.cta-section {
+  color: var(--white);
+}
+
+.navbar a,
+.navbar button,
+.home-container *,
+.hero-section *,
+.login-header *,
+.cta-section * {
+  color: var(--white);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 2px;
+}
+
+/* Button focus styles */
+button:focus {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 2px;
+}
+
+/* Link focus styles */
+a:focus {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 2px;
+}
+
+/* Enhanced Navigation */
+.navbar {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(27, 77, 62, 0.95) 0%, rgba(46, 139, 87, 0.95) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar a {
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-light);
+  transition: var(--transition);
+  transform: translateX(-50%);
+}
+
+.navbar a:hover::before {
+  width: 100%;
+}
+
+/* Enhanced Cards */
+.land-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.land-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+  transform: scaleX(0);
+  transition: var(--transition);
+}
+
+.land-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Enhanced Buttons */
+.dashboard-button,
+.contact-button,
+.land-card button {
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.dashboard-button::before,
+.contact-button::before,
+.land-card button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: var(--transition);
+  transform: translate(-50%, -50%);
+}
+
+.dashboard-button:hover::before,
+.contact-button:hover::before,
+.land-card button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Enhanced Forms */
+.form-container {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+form {
+  position: relative;
+  overflow: hidden;
+}
+
+form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input {
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Enhanced Page Headers */
+.page-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(46, 139, 87, 0.1) 0%, rgba(34, 139, 34, 0.1) 100%);
+  z-index: -1;
+}
+
+.page-title {
+  position: relative;
+  display: inline-block;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+  transform: translateX(-50%);
+}
+
+/* Enhanced Grid */
+.land-grid {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Loading Animation */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.loading::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--neutral-gray);
+  border-top: 2px solid var(--primary-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Enhanced Footer */
+footer {
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+  
+  .navbar-left,
+  .navbar-right {
+    gap: 0.5rem;
+  }
+  
+  .navbar a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+  }
+  
+  .land-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .dashboard-actions {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .form-container {
+    margin: 1rem;
+  }
+  
+  form {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .navbar-left,
+  .navbar-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .home-container {
+    padding: 2rem 1rem;
+  }
+  
+  .home-title {
+    font-size: 2rem;
+  }
+  
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .land-card-content {
+    padding: 1rem;
+  }
+  
+  .land-detail-container,
+  .dashboard-container,
+  .favorites-container,
+  .admin-container {
+    padding: 1rem;
+  }
+  
+  .land-detail-info,
+  .dashboard-card,
+  .admin-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .navbar,
+  footer,
+  .dashboard-actions,
+  .land-card-actions {
+    display: none;
+  }
+  
+  .land-card,
+  .dashboard-card,
+  .admin-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .page-title {
+    color: #000;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-accent: #006400;
+    --dark-contrast: #000000;
+    --white: #ffffff;
+    --neutral-gray: #000000;
+  }
+  
+  .land-card,
+  .dashboard-card,
+  .admin-card,
+  form {
+    border: 2px solid var(--neutral-gray);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .land-card:hover,
+  .dashboard-button:hover,
+  .contact-button:hover {
+    transform: none;
+  }
+}
+
+/* Focus Visible for better accessibility */
+.focus-visible {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-contrast);
+}
+
+/* Selection styles */
+::selection {
+  background: var(--primary-accent);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--primary-accent);
+  color: white;
+} 
